@@ -9,6 +9,7 @@ const project: LocalProject = {
   fronts: [],
   actions: [],
   events: [],
+  weeklyTargets: [],
   diaries: [
     {
       id: "diary-1",

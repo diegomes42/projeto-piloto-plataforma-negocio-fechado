@@ -133,8 +133,8 @@
 - [x] Implementar Centro de atenção da obra na Visão geral
 - [x] Validar e publicar o Centro de atenção antes da próxima etapa
 - [x] Implementar relatório semanal operacional exportável
-- [ ] Validar e publicar o relatório semanal antes da próxima etapa
-- [ ] Implementar planejamento físico simplificado por frente e semana
+- [x] Validar e publicar o relatório semanal antes da próxima etapa
+- [x] Implementar planejamento físico simplificado por frente e semana
 - [ ] Validar e publicar o planejamento físico antes da próxima etapa
 - [ ] Implementar melhorias móveis essenciais: PWA, câmera e formulários de campo
 - [ ] Validar e publicar as melhorias móveis antes da próxima etapa

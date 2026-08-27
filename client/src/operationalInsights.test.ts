@@ -13,6 +13,7 @@ const baseProject: LocalProject = {
     { id: "action-2", title: "Ação próxima", owner: "Equipe", due: "2026-09-01", priority: "Média", done: false },
   ],
   events: [{ id: "event-1", title: "Evento crítico", description: "Teste", date: "2026-08-20T12:00:00.000Z", impact: "Impacto", decision: "Decisão", priority: "Crítica", status: "Aberto" }],
+  weeklyTargets: [],
   diaries: [],
 };
 

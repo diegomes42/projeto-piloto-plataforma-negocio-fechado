@@ -2,11 +2,11 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/useMobile";
 import { usePilotLocation } from "@/pilotRouting";
-import { Bell, Building2, ClipboardCheck, Download, FileText, LayoutDashboard, PanelLeft, Settings2, SlidersHorizontal, X } from "lucide-react";
+import { Bell, Building2, ClipboardCheck, Download, FileText, LayoutDashboard, PanelLeft, Settings2, SlidersHorizontal, Target, X } from "lucide-react";
 import { useState } from "react";
 
 const menuItems = [
-  { icon: LayoutDashboard, label: "Visão geral", path: "/" }, { icon: ClipboardCheck, label: "Registrar o dia", path: "/diario" }, { icon: Building2, label: "Frentes e produção", path: "/frentes" }, { icon: Bell, label: "Eventos e ações", path: "/eventos" }, { icon: FileText, label: "Linha do tempo", path: "/timeline" }, { icon: FileText, label: "Relatório semanal", path: "/relatorio" }, { icon: SlidersHorizontal, label: "Cadastro rápido", path: "/cadastro" }, { icon: Download, label: "Backup dos dados", path: "/dados" },
+  { icon: LayoutDashboard, label: "Visão geral", path: "/" }, { icon: ClipboardCheck, label: "Registrar o dia", path: "/diario" }, { icon: Building2, label: "Frentes e produção", path: "/frentes" }, { icon: Bell, label: "Eventos e ações", path: "/eventos" }, { icon: FileText, label: "Linha do tempo", path: "/timeline" }, { icon: FileText, label: "Relatório semanal", path: "/relatorio" }, { icon: Target, label: "Planejamento físico", path: "/planejamento" }, { icon: SlidersHorizontal, label: "Cadastro rápido", path: "/cadastro" }, { icon: Download, label: "Backup dos dados", path: "/dados" },
 ];
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {

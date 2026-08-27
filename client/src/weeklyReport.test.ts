@@ -13,6 +13,7 @@ const project: LocalProject = {
     { id: "action-out", title: "Ação futura", owner: "Equipe", due: "2026-09-10", priority: "Alta", done: false },
   ],
   events: [{ id: "event-in", title: "Evento semanal", description: "Teste", date: "2026-08-25T12:00:00.000Z", impact: "Impacto", decision: "Decisão", priority: "Média", status: "Aberto" }],
+  weeklyTargets: [],
   diaries: [
     { id: "diary-in", date: "2026-08-26T12:00:00.000Z", frontId: "drn-01", service: "Drenagem", summary: "Produção", occurrence: "Solo úmido", weather: "Nublado", workforce: 5, hours: 8, production: 12 },
     { id: "diary-out", date: "2026-08-19T12:00:00.000Z", frontId: "drn-01", service: "Drenagem", summary: "Anterior", occurrence: "", weather: "Seco", workforce: 2, hours: 8, production: 3 },

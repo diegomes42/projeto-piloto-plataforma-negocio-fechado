@@ -56,6 +56,14 @@ export type LocalFront = {
   services: string[];
 };
 
+export type LocalWeeklyTarget = {
+  id: string;
+  frontId: string;
+  weekEnd: string;
+  planned: number;
+  note: string;
+};
+
 export type LocalProject = {
   name: string;
   location: string;
@@ -65,6 +73,7 @@ export type LocalProject = {
   actions: LocalAction[];
   events: LocalEvent[];
   diaries: LocalDiary[];
+  weeklyTargets: LocalWeeklyTarget[];
 };
 
 const seed: LocalProject = {
@@ -195,6 +204,7 @@ const seed: LocalProject = {
     frontId: "drn-01",
   })),
   diaries: [],
+  weeklyTargets: [],
 };
 
 export const LOCAL_STORAGE_KEY = "obra-piloto-local-v1";
@@ -220,6 +230,7 @@ function normalizeProject(raw: Partial<LocalProject>): LocalProject {
     actions: mergeSeedActions(raw.actions),
     events: raw.events ?? seed.events,
     diaries: raw.diaries ?? [],
+    weeklyTargets: raw.weeklyTargets ?? [],
   };
 }
 
@@ -296,5 +307,15 @@ export function useLocalProject() {
     [update],
   );
 
-  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService };
+  const upsertWeeklyTarget = useCallback((target: Omit<LocalWeeklyTarget, "id">) => update((current) => {
+    const existing = current.weeklyTargets.find((item) => item.frontId === target.frontId && item.weekEnd === target.weekEnd);
+    return {
+      ...current,
+      weeklyTargets: existing
+        ? current.weeklyTargets.map((item) => (item.id === existing.id ? { ...item, ...target } : item))
+        : [...current.weeklyTargets, { ...target, id: makeId("weekly-target") }],
+    };
+  }), [update]);
+
+  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget };
 }

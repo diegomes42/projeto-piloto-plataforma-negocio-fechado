@@ -1,0 +1,38 @@
+import { useMemo, useState } from "react";
+import { CalendarDays, Check, Plus, Target, TrendingDown, TrendingUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "sonner";
+import { useLocalProject } from "@/localStore";
+import { getWeeklyTargetSnapshots } from "@/physicalPlanning";
+
+const Kicker = ({ children }: { children: React.ReactNode }) => <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#71756f]">{children}</p>;
+const today = () => new Date().toISOString().slice(0, 10);
+const dateLabel = (value: string) => new Date(`${value}T12:00:00`).toLocaleDateString("pt-BR");
+
+export default function PhysicalPlanningPage() {
+  const { project, upsertWeeklyTarget } = useLocalProject();
+  const [frontId, setFrontId] = useState(project.fronts[0]?.id ?? "");
+  const [weekEnd, setWeekEnd] = useState(today);
+  const [planned, setPlanned] = useState("");
+  const [note, setNote] = useState("");
+  const snapshots = useMemo(() => getWeeklyTargetSnapshots(project), [project]);
+  const achieved = snapshots.filter((item) => item.status === "Meta atingida").length;
+  const attention = snapshots.filter((item) => item.status === "Atrasada").length;
+
+  const saveTarget = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const plannedValue = Number(planned);
+    if (!frontId || !weekEnd || !Number.isFinite(plannedValue) || plannedValue <= 0) {
+      toast.error("Informe frente, encerramento da semana e uma meta maior que zero.");
+      return;
+    }
+    upsertWeeklyTarget({ frontId, weekEnd, planned: plannedValue, note: note.trim() });
+    setPlanned(""); setNote("");
+    toast.success("Meta semanal salva neste navegador");
+  };
+
+  return <div className="min-h-screen bg-[#ececea] px-4 py-8 sm:px-8 lg:px-12"><div className="mx-auto max-w-6xl"><header className="flex flex-col gap-4 border-b border-black/10 pb-6 md:flex-row md:items-end md:justify-between"><div><Kicker>Planejado versus realizado</Kicker><h1 className="mt-3 text-5xl font-black uppercase tracking-[-0.08em]">Planejamento físico</h1><p className="mt-3 max-w-2xl text-sm text-[#70756e]">Defina metas por frente e por semana. O realizado é calculado a partir dos lançamentos do diário.</p></div><div className="flex items-center gap-2 text-xs font-semibold text-[#5d625a]"><CalendarDays className="h-4 w-4 text-[#789249]" />Metas salvas somente neste navegador</div></header><div className="mt-8 grid gap-5 lg:grid-cols-[.85fr_1.15fr]"><Card className="rounded-none border-0 bg-[#202321] text-white shadow-[5px_5px_0_#c7c9c2]"><CardContent className="p-6"><Kicker>Nova meta semanal</Kicker><h2 className="mt-2 text-2xl font-black uppercase">Definir compromisso</h2><form onSubmit={saveTarget} className="mt-5 space-y-3"><select value={frontId} onChange={(event) => setFrontId(event.target.value)} className="h-10 w-full border border-white/15 bg-[#363a36] px-3 text-sm text-white"><option value="" disabled>Selecione a frente</option>{project.fronts.map((front) => <option key={front.id} value={front.id}>{front.code} · {front.name}</option>)}</select><Input type="date" value={weekEnd} onChange={(event) => setWeekEnd(event.target.value)} className="border-white/15 bg-white/10 text-white" /><Input type="number" min="0" step="0.01" value={planned} onChange={(event) => setPlanned(event.target.value)} placeholder="Meta física da semana" className="border-white/15 bg-white/10 text-white placeholder:text-white/35" /><Textarea value={note} onChange={(event) => setNote(event.target.value)} placeholder="Observação ou condição necessária para a meta" className="min-h-24 border-white/15 bg-white/10 text-white placeholder:text-white/35" /><Button type="submit" className="w-full bg-[#b8d36a] text-[#202321] hover:bg-[#c9e27c]"><Plus className="mr-2 h-4 w-4" />Salvar meta</Button></form></CardContent></Card><div className="grid gap-3 sm:grid-cols-3"><Card className="rounded-none border-0 bg-[#f6f6f3] shadow-[5px_5px_0_#d0d1cb]"><CardContent className="p-5"><Kicker>Metas registradas</Kicker><p className="mt-4 text-4xl font-black tracking-[-0.08em]">{String(snapshots.length).padStart(2, "0")}</p><p className="mt-1 text-xs text-[#777c74]">Frente e semana</p></CardContent></Card><Card className="rounded-none border-0 bg-[#f6f6f3] shadow-[5px_5px_0_#d0d1cb]"><CardContent className="p-5"><Kicker>Metas atingidas</Kicker><p className="mt-4 text-4xl font-black tracking-[-0.08em] text-[#789249]">{String(achieved).padStart(2, "0")}</p><p className="mt-1 text-xs text-[#777c74]">Produção igual ou maior</p></CardContent></Card><Card className="rounded-none border-0 bg-[#f6f6f3] shadow-[5px_5px_0_#d0d1cb]"><CardContent className="p-5"><Kicker>Atrasos identificados</Kicker><p className="mt-4 text-4xl font-black tracking-[-0.08em] text-[#b84f42]">{String(attention).padStart(2, "0")}</p><p className="mt-1 text-xs text-[#777c74]">Sem meta atingida após a semana</p></CardContent></Card></div></div><section className="mt-8"><div className="mb-3"><Kicker>Leitura das metas</Kicker><h2 className="mt-1 text-xl font-black uppercase tracking-[-0.04em]">Acompanhamento semanal</h2></div><div className="space-y-3">{snapshots.map((item) => <Card key={item.target.id} className="rounded-none border-0 bg-[#f6f6f3] shadow-[5px_5px_0_#d0d1cb]"><CardContent className="p-5"><div className="flex flex-col gap-5 lg:flex-row lg:items-center"><div className="min-w-0 flex-1"><div className="flex flex-wrap items-center gap-2"><Kicker>{item.front?.code ?? "Frente removida"} · semana de {dateLabel(item.weekStart)} a {dateLabel(item.target.weekEnd)}</Kicker><span className={`px-2 py-1 text-[9px] font-bold uppercase tracking-[0.1em] ${item.status === "Meta atingida" ? "bg-[#e5efd0] text-[#617a31]" : item.status === "Atrasada" ? "bg-[#f4d7d3] text-[#b84f42]" : "bg-[#f1dfc5] text-[#a56c1e]"}`}>{item.status}</span></div><h3 className="mt-2 text-lg font-black uppercase">{item.front?.name ?? "Frente não localizada"}</h3>{item.target.note && <p className="mt-2 text-sm leading-6 text-[#70756e]">{item.target.note}</p>}</div><div className="w-full lg:w-80"><div className="mb-2 flex items-end justify-between text-xs"><span className="font-bold">{item.actual.toFixed(2)} / {item.target.planned.toFixed(2)} {item.front?.unit ?? "un"}</span><span className="font-black">{item.progress}%</span></div><div className="h-3 overflow-hidden bg-[#dedfda]"><div className={`${item.status === "Meta atingida" ? "bg-[#8da65a]" : item.status === "Atrasada" ? "bg-[#c95a4a]" : "bg-[#d89b45]"} h-full transition-all`} style={{ width: `${item.progress}%` }} /></div><div className="mt-2 flex items-center gap-1 text-[10px] font-bold uppercase tracking-[0.1em] text-[#71756f]">{item.variance >= 0 ? <TrendingUp className="h-3.5 w-3.5 text-[#789249]" /> : <TrendingDown className="h-3.5 w-3.5 text-[#b84f42]" />}{item.variance >= 0 ? `+${item.variance.toFixed(2)}` : item.variance.toFixed(2)} {item.front?.unit ?? "un"} frente à meta</div></div></div></CardContent></Card>)}{snapshots.length === 0 && <Card className="rounded-none border-0 border-l-4 border-l-[#8da65a] bg-[#f6f6f3] shadow-[5px_5px_0_#d0d1cb]"><CardContent className="flex gap-4 p-5"><span className="grid h-10 w-10 shrink-0 place-items-center bg-[#e5efd0] text-[#789249]"><Target className="h-5 w-5" /></span><div><Kicker>Primeiro planejamento</Kicker><p className="mt-1 text-sm leading-6 text-[#70756e]">Defina uma meta para uma frente e a produção registrada no diário passará a ser comparada automaticamente.</p></div></CardContent></Card>}</div></section></div></div>;
+}
