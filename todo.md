@@ -127,3 +127,16 @@
 - [x] Aprimorar o plano de ações com edição de responsável, prazo e prioridade
 - [x] Validar backup, restauração, ações, testes e build
 - [x] Publicar a próxima versão no GitHub Pages
+
+## Evolução incremental da plataforma
+
+- [x] Implementar Centro de atenção da obra na Visão geral
+- [ ] Validar e publicar o Centro de atenção antes da próxima etapa
+- [ ] Implementar relatório semanal operacional exportável
+- [ ] Validar e publicar o relatório semanal antes da próxima etapa
+- [ ] Implementar planejamento físico simplificado por frente e semana
+- [ ] Validar e publicar o planejamento físico antes da próxima etapa
+- [ ] Implementar melhorias móveis essenciais: PWA, câmera e formulários de campo
+- [ ] Validar e publicar as melhorias móveis antes da próxima etapa
+- [ ] Implementar galeria e classificação das evidências
+- [ ] Planejar sincronização entre dispositivos para etapa futura
