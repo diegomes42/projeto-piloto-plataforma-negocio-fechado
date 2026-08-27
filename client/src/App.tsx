@@ -10,11 +10,12 @@ import NotFound from "@/pages/NotFound";
 import BackupPage from "@/pages/BackupPage";
 import WeeklyReportPage from "@/pages/WeeklyReportPage";
 import PhysicalPlanningPage from "@/pages/PhysicalPlanningPage";
+import EvidenceGalleryPage from "@/pages/EvidenceGalleryPage";
 import { usePilotLocation } from "@/pilotRouting";
 
 function AppRouter() {
   const [path] = usePilotLocation();
-  const content = path === "/" ? <Home /> : path === "/diario" ? <OperationalPage mode="diario" /> : path === "/frentes" ? <OperationalPage mode="frentes" /> : path === "/eventos" ? <OperationalPage mode="eventos" /> : path === "/timeline" ? <OperationalPage mode="timeline" /> : path === "/cadastro" ? <SetupPage /> : path === "/dados" ? <BackupPage /> : path === "/relatorio" ? <WeeklyReportPage /> : path === "/planejamento" ? <PhysicalPlanningPage /> : <NotFound />;
+  const content = path === "/" ? <Home /> : path === "/diario" ? <OperationalPage mode="diario" /> : path === "/frentes" ? <OperationalPage mode="frentes" /> : path === "/eventos" ? <OperationalPage mode="eventos" /> : path === "/timeline" ? <OperationalPage mode="timeline" /> : path === "/cadastro" ? <SetupPage /> : path === "/dados" ? <BackupPage /> : path === "/relatorio" ? <WeeklyReportPage /> : path === "/planejamento" ? <PhysicalPlanningPage /> : path === "/evidencias" ? <EvidenceGalleryPage /> : <NotFound />;
   return <DashboardLayout>{content}</DashboardLayout>;
 }
 
