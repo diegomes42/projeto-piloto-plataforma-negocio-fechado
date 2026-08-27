@@ -139,7 +139,7 @@
 - [x] Implementar melhorias móveis essenciais: PWA, câmera e formulários de campo
 - [x] Validar e publicar as melhorias móveis antes da próxima etapa
 - [x] Implementar galeria e classificação das evidências
-- [ ] Planejar sincronização entre dispositivos para etapa futura
+- [x] Planejar sincronização entre dispositivos para etapa futura
 
 ## Subetapa móvel — aplicativo instalável
 
