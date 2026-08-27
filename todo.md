@@ -136,7 +136,7 @@
 - [x] Validar e publicar o relatório semanal antes da próxima etapa
 - [x] Implementar planejamento físico simplificado por frente e semana
 - [x] Validar e publicar o planejamento físico antes da próxima etapa
-- [ ] Implementar melhorias móveis essenciais: PWA, câmera e formulários de campo
+- [x] Implementar melhorias móveis essenciais: PWA, câmera e formulários de campo
 - [ ] Validar e publicar as melhorias móveis antes da próxima etapa
 - [ ] Implementar galeria e classificação das evidências
 - [ ] Planejar sincronização entre dispositivos para etapa futura
@@ -144,4 +144,4 @@
 ## Subetapa móvel — aplicativo instalável
 
 - [x] Adicionar manifesto, ícone, service worker e convite de instalação quando suportado
-- [ ] Validar e publicar o aplicativo instalável antes de implementar captura por câmera
+- [x] Validar e publicar o aplicativo instalável antes de implementar captura por câmera
