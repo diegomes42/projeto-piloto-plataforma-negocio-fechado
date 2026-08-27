@@ -81,3 +81,7 @@
 - [x] Adicionar workflow GitHub Actions para build e publicação no Pages
 - [x] Criar novo repositório privado com o nome Projeto Piloto: Plataforma Negócio fechado
 - [x] Validar build estático e fornecer a ativação do GitHub Pages (o endereço será gerado após habilitar Pages no repositório)
+
+## Correção do primeiro workflow Pages
+
+- [ ] Corrigir conflito de versões do pnpm no GitHub Actions e reenviar o workflow
