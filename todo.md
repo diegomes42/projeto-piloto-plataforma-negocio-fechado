@@ -116,5 +116,5 @@
 
 - [x] Adicionar as demais ações operacionais do Jardim Planalto ao seed local
 - [x] Vincular cada ação à frente, responsável, prioridade e prazo quando disponíveis
-- [ ] Validar a exibição das novas ações em Eventos e ações e na Linha do tempo
-- [ ] Publicar a atualização das ações no GitHub Pages
+- [x] Validar a exibição das novas ações em Eventos e ações e na Linha do tempo
+- [x] Publicar a atualização das ações no GitHub Pages
