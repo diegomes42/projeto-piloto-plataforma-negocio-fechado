@@ -98,8 +98,16 @@
 
 ## Registro do diário — prioridade atual
 
-- [ ] Garantir formulário de diário com data, frente/serviço, atividade, equipe, horas, clima, produção e ocorrência
-- [ ] Salvar o diário no localStorage com estrutura estável e confirmação clara
-- [ ] Atualizar a timeline e os indicadores após o registro
-- [ ] Confirmar persistência após recarregar a página
-- [ ] Publicar e validar o fluxo no GitHub Pages
+- [x] Garantir formulário de diário com data, frente/serviço, atividade, equipe, horas, clima, produção e ocorrência
+- [x] Salvar o diário no localStorage com estrutura estável e confirmação clara
+- [x] Atualizar a timeline e os indicadores após o registro
+- [x] Confirmar persistência após recarregar a página
+- [x] Publicar e validar o fluxo no GitHub Pages
+
+## Próxima iteração — módulos restantes do piloto
+
+- [x] Implementar anexar foto com armazenamento local em Base64 e visualização no diário
+- [x] Tornar Frentes e produção interativa com cadastro, filtros e acompanhamento do realizado
+- [x] Tornar Eventos e ações interativa com criação, prioridade e alteração de status
+- [x] Finalizar Cadastro rápido para adicionar frentes e serviços localmente
+- [ ] Validar persistência, navegação e build após os módulos restantes
