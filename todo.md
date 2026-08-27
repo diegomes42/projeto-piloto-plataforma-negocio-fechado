@@ -89,3 +89,9 @@
 ## Bloqueio de publicação Pages
 
 - [x] Resolver permissão do GitHub Pages: tornar o repositório público, habilitar Pages e concluir o deploy por GitHub Actions
+
+## Correção do 404 no GitHub Pages
+
+- [ ] Diagnosticar o 404 no endereço publicado e conferir status do Pages
+- [ ] Corrigir caminho base/roteamento ou configuração de publicação
+- [ ] Republicar e validar a URL final no navegador
