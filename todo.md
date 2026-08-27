@@ -110,4 +110,4 @@
 - [x] Tornar Frentes e produção interativa com cadastro, filtros e acompanhamento do realizado
 - [x] Tornar Eventos e ações interativa com criação, prioridade e alteração de status
 - [x] Finalizar Cadastro rápido para adicionar frentes e serviços localmente
-- [ ] Validar persistência, navegação e build após os módulos restantes
+- [x] Validar persistência, navegação e build após os módulos restantes
