@@ -92,6 +92,6 @@
 
 ## Correção do 404 no GitHub Pages
 
-- [ ] Diagnosticar o 404 no endereço publicado e conferir status do Pages
-- [ ] Corrigir caminho base/roteamento ou configuração de publicação
-- [ ] Republicar e validar a URL final no navegador
+- [x] Diagnosticar o 404 no endereço publicado e conferir status do Pages
+- [x] Corrigir caminho base/roteamento ou configuração de publicação
+- [x] Republicar e validar a URL final no navegador
