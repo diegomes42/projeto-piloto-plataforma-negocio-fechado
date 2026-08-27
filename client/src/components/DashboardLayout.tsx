@@ -6,7 +6,7 @@ import { Bell, Building2, ClipboardCheck, Download, FileText, LayoutDashboard, P
 import { useState } from "react";
 
 const menuItems = [
-  { icon: LayoutDashboard, label: "Visão geral", path: "/" }, { icon: ClipboardCheck, label: "Registrar o dia", path: "/diario" }, { icon: Building2, label: "Frentes e produção", path: "/frentes" }, { icon: Bell, label: "Eventos e ações", path: "/eventos" }, { icon: FileText, label: "Linha do tempo", path: "/timeline" }, { icon: SlidersHorizontal, label: "Cadastro rápido", path: "/cadastro" }, { icon: Download, label: "Backup dos dados", path: "/dados" },
+  { icon: LayoutDashboard, label: "Visão geral", path: "/" }, { icon: ClipboardCheck, label: "Registrar o dia", path: "/diario" }, { icon: Building2, label: "Frentes e produção", path: "/frentes" }, { icon: Bell, label: "Eventos e ações", path: "/eventos" }, { icon: FileText, label: "Linha do tempo", path: "/timeline" }, { icon: FileText, label: "Relatório semanal", path: "/relatorio" }, { icon: SlidersHorizontal, label: "Cadastro rápido", path: "/cadastro" }, { icon: Download, label: "Backup dos dados", path: "/dados" },
 ];
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {

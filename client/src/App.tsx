@@ -8,11 +8,12 @@ import OperationalPage from "@/pages/OperationalPage";
 import SetupPage from "@/pages/SetupPage";
 import NotFound from "@/pages/NotFound";
 import BackupPage from "@/pages/BackupPage";
+import WeeklyReportPage from "@/pages/WeeklyReportPage";
 import { usePilotLocation } from "@/pilotRouting";
 
 function AppRouter() {
   const [path] = usePilotLocation();
-  const content = path === "/" ? <Home /> : path === "/diario" ? <OperationalPage mode="diario" /> : path === "/frentes" ? <OperationalPage mode="frentes" /> : path === "/eventos" ? <OperationalPage mode="eventos" /> : path === "/timeline" ? <OperationalPage mode="timeline" /> : path === "/cadastro" ? <SetupPage /> : path === "/dados" ? <BackupPage /> : <NotFound />;
+  const content = path === "/" ? <Home /> : path === "/diario" ? <OperationalPage mode="diario" /> : path === "/frentes" ? <OperationalPage mode="frentes" /> : path === "/eventos" ? <OperationalPage mode="eventos" /> : path === "/timeline" ? <OperationalPage mode="timeline" /> : path === "/cadastro" ? <SetupPage /> : path === "/dados" ? <BackupPage /> : path === "/relatorio" ? <WeeklyReportPage /> : <NotFound />;
   return <DashboardLayout>{content}</DashboardLayout>;
 }
 

@@ -131,8 +131,8 @@
 ## Evolução incremental da plataforma
 
 - [x] Implementar Centro de atenção da obra na Visão geral
-- [ ] Validar e publicar o Centro de atenção antes da próxima etapa
-- [ ] Implementar relatório semanal operacional exportável
+- [x] Validar e publicar o Centro de atenção antes da próxima etapa
+- [x] Implementar relatório semanal operacional exportável
 - [ ] Validar e publicar o relatório semanal antes da próxima etapa
 - [ ] Implementar planejamento físico simplificado por frente e semana
 - [ ] Validar e publicar o planejamento físico antes da próxima etapa
