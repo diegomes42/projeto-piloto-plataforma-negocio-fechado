@@ -95,3 +95,11 @@
 - [x] Diagnosticar o 404 no endereço publicado e conferir status do Pages
 - [x] Corrigir caminho base/roteamento ou configuração de publicação
 - [x] Republicar e validar a URL final no navegador
+
+## Registro do diário — prioridade atual
+
+- [ ] Garantir formulário de diário com data, frente/serviço, atividade, equipe, horas, clima, produção e ocorrência
+- [ ] Salvar o diário no localStorage com estrutura estável e confirmação clara
+- [ ] Atualizar a timeline e os indicadores após o registro
+- [ ] Confirmar persistência após recarregar a página
+- [ ] Publicar e validar o fluxo no GitHub Pages
