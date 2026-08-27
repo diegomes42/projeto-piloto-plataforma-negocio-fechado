@@ -207,7 +207,7 @@ function normalizeProject(raw: Partial<LocalProject>): LocalProject {
     ...raw,
     fronts: (raw.fronts ?? seed.fronts).map((front) => ({
       ...front,
-      services: Array.isArray(front.services) ? front.services : [],
+      services: Array.isArray(front.services) && front.services.length > 0 ? front.services : seed.fronts.find((item) => item.id === front.id)?.services ?? [],
     })),
     actions: raw.actions ?? seed.actions,
     events: raw.events ?? seed.events,
