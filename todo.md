@@ -126,4 +126,4 @@
 - [x] Adicionar acesso visível a backup e restauração na interface do piloto
 - [x] Aprimorar o plano de ações com edição de responsável, prazo e prioridade
 - [x] Validar backup, restauração, ações, testes e build
-- [ ] Publicar a próxima versão no GitHub Pages
+- [x] Publicar a próxima versão no GitHub Pages

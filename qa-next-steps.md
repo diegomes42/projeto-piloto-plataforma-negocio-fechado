@@ -7,3 +7,5 @@ A seleção controlada de um arquivo `qa-backup.json` válido abriu o diálogo *
 Na rota local `#/eventos`, a primeira ação exibiu o novo controle de edição. Ao acioná-lo, apareceram os campos de responsável, prazo e prioridade, além dos botões Salvar e Cancelar. A edição foi salva com responsável “Equipe de drenagem”, prazo 30/08/2026 e prioridade Alta; a interface exibiu “Ação atualizada neste navegador” e refletiu os três valores no cartão da ação.
 
 Na tela local de backup, o botão **Baixar backup JSON** foi acionado com sucesso e exibiu o feedback “Backup baixado”.
+
+Após o commit `da0ca30`, o workflow do GitHub Actions concluiu build e deploy com sucesso. A rota pública `https://diegomes42.github.io/projeto-piloto-plataforma-negocio-fechado/?v=da0ca30#/dados` carregou o menu **Backup dos dados**, os controles de exportação/restauração e os contadores do estado local persistido no navegador.
