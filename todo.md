@@ -118,3 +118,12 @@
 - [x] Vincular cada ação à frente, responsável, prioridade e prazo quando disponíveis
 - [x] Validar a exibição das novas ações em Eventos e ações e na Linha do tempo
 - [x] Publicar a atualização das ações no GitHub Pages
+
+## Próximos passos — segurança e controle operacional
+
+- [x] Implementar exportação dos dados locais em arquivo JSON com evidências incluídas
+- [x] Implementar restauração de backup JSON com validação e confirmação antes de substituir os dados
+- [x] Adicionar acesso visível a backup e restauração na interface do piloto
+- [x] Aprimorar o plano de ações com edição de responsável, prazo e prioridade
+- [x] Validar backup, restauração, ações, testes e build
+- [ ] Publicar a próxima versão no GitHub Pages

@@ -197,7 +197,8 @@ const seed: LocalProject = {
   diaries: [],
 };
 
-const KEY = "obra-piloto-local-v1";
+export const LOCAL_STORAGE_KEY = "obra-piloto-local-v1";
+const KEY = LOCAL_STORAGE_KEY;
 
 function makeId(prefix: string) {
   if (typeof crypto !== "undefined" && "randomUUID" in crypto) return `${prefix}-${crypto.randomUUID()}`;
@@ -220,6 +221,20 @@ function normalizeProject(raw: Partial<LocalProject>): LocalProject {
     events: raw.events ?? seed.events,
     diaries: raw.diaries ?? [],
   };
+}
+
+export function serializeLocalProject(project: LocalProject) {
+  return JSON.stringify(project, null, 2);
+}
+
+export function parseLocalBackup(text: string): LocalProject {
+  const parsed: unknown = JSON.parse(text);
+  if (!parsed || typeof parsed !== "object") throw new Error("Arquivo de backup inválido");
+  const candidate = parsed as Partial<LocalProject>;
+  if (!Array.isArray(candidate.fronts) || !Array.isArray(candidate.actions) || !Array.isArray(candidate.events) || !Array.isArray(candidate.diaries)) {
+    throw new Error("Backup incompleto: fronts, actions, events e diaries são obrigatórios");
+  }
+  return normalizeProject(candidate);
 }
 
 function load(): LocalProject {
@@ -264,6 +279,10 @@ export function useLocalProject() {
 
   const addAction = useCallback((action: Omit<LocalAction, "id">) => update((current) => ({ ...current, actions: [{ ...action, id: makeId("action") }, ...current.actions] })), [update]);
 
+  const updateAction = useCallback((id: string, changes: Partial<Pick<LocalAction, "owner" | "due" | "priority" | "frontId" | "eventId">>) => update((current) => ({ ...current, actions: current.actions.map((action) => (action.id === id ? { ...action, ...changes } : action)) })), [update]);
+
+  const replaceProject = useCallback((next: LocalProject) => setProject(normalizeProject(next)), []);
+
   const toggleAction = useCallback((id: string) => update((current) => ({ ...current, actions: current.actions.map((action) => (action.id === id ? { ...action, done: !action.done } : action)) })), [update]);
 
   const addFront = useCallback((front: Omit<LocalFront, "id">) => update((current) => ({ ...current, fronts: [...current.fronts, { ...front, id: makeId("front") }] })), [update]);
@@ -277,5 +296,5 @@ export function useLocalProject() {
     [update],
   );
 
-  return { project, addDiary, addEvent, setEventStatus, addAction, toggleAction, addFront, addService };
+  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService };
 }
