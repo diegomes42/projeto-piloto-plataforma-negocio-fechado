@@ -84,4 +84,8 @@
 
 ## Correção do primeiro workflow Pages
 
-- [ ] Corrigir conflito de versões do pnpm no GitHub Actions e reenviar o workflow
+- [x] Corrigir conflito de versões do pnpm no GitHub Actions e reenviar o workflow
+
+## Bloqueio de publicação Pages
+
+- [x] Resolver permissão do GitHub Pages: tornar o repositório público, habilitar Pages e concluir o deploy por GitHub Actions
