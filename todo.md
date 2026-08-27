@@ -111,3 +111,10 @@
 - [x] Tornar Eventos e ações interativa com criação, prioridade e alteração de status
 - [x] Finalizar Cadastro rápido para adicionar frentes e serviços localmente
 - [x] Validar persistência, navegação e build após os módulos restantes
+
+## Ampliação do plano de ações — Jardim Planalto
+
+- [x] Adicionar as demais ações operacionais do Jardim Planalto ao seed local
+- [x] Vincular cada ação à frente, responsável, prioridade e prazo quando disponíveis
+- [ ] Validar a exibição das novas ações em Eventos e ações e na Linha do tempo
+- [ ] Publicar a atualização das ações no GitHub Pages

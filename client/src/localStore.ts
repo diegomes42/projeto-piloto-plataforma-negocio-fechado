@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { applyProduction, sameLabel } from "@/localRules";
+import { appendMissingByLabel, applyProduction, sameLabel } from "@/localRules";
 
 export type LocalPriority = "Crítica" | "Alta" | "Média" | "Baixa";
 export type LocalEventStatus = "Aberto" | "Em tratamento" | "Resolvido";
@@ -180,6 +180,9 @@ const seed: LocalProject = {
     "Aplicar camada drenante de rachinha",
     "Inspecionar e liberar o fundo",
     "Retomar assentamento da tubulação",
+    "Liberar o trecho para assentamento",
+    "Definir e executar o método de assentamento e içamento da tubulação",
+    "Iniciar ou retomar o assentamento dos tubos",
     "Registrar evidência fotográfica do trecho",
   ].map((title, index) => ({
     id: `act-${index + 1}`,
@@ -201,6 +204,10 @@ function makeId(prefix: string) {
   return `${prefix}-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+function mergeSeedActions(rawActions: LocalAction[] | undefined) {
+  return appendMissingByLabel(rawActions ?? [], seed.actions);
+}
+
 function normalizeProject(raw: Partial<LocalProject>): LocalProject {
   return {
     ...seed,
@@ -209,7 +216,7 @@ function normalizeProject(raw: Partial<LocalProject>): LocalProject {
       ...front,
       services: Array.isArray(front.services) && front.services.length > 0 ? front.services : seed.fronts.find((item) => item.id === front.id)?.services ?? [],
     })),
-    actions: raw.actions ?? seed.actions,
+    actions: mergeSeedActions(raw.actions),
     events: raw.events ?? seed.events,
     diaries: raw.diaries ?? [],
   };

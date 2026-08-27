@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { applyProduction, productionProgress, sameLabel } from "./localRules";
+import { appendMissingByLabel, applyProduction, productionProgress, sameLabel } from "./localRules";
 
 describe("regras locais do piloto", () => {
   it("calcula o avanço da frente com limite de 100%", () => {
@@ -18,5 +18,19 @@ describe("regras locais do piloto", () => {
   it("compara serviços ignorando espaços e maiúsculas", () => {
     expect(sameLabel(" Assentamento ", "assentamento")).toBe(true);
     expect(sameLabel("Escavação", "Reaterro")).toBe(false);
+  });
+
+  it("mescla ações obrigatórias sem duplicar as já salvas", () => {
+    const existing = [{ title: "Mobilizar sistema de bombeamento", id: "custom-1" }];
+    const required = [
+      { title: "Mobilizar sistema/equipamento de bombeamento", id: "seed-1" },
+      { title: "Liberar o trecho para assentamento", id: "seed-2" },
+    ];
+
+    expect(appendMissingByLabel(existing, required)).toEqual([
+      existing[0],
+      required[0],
+      required[1],
+    ]);
   });
 });

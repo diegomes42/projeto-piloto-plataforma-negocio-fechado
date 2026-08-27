@@ -25,3 +25,8 @@ export function applyProduction(state: FrontProductionState, production: number)
 export function sameLabel(a: string, b: string) {
   return a.trim().toLocaleLowerCase() === b.trim().toLocaleLowerCase();
 }
+
+export function appendMissingByLabel<T extends { title: string }>(existing: T[], required: T[]) {
+  const missing = required.filter((item) => !existing.some((candidate) => sameLabel(candidate.title, item.title)));
+  return [...existing, ...missing];
+}
