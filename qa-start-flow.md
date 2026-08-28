@@ -15,3 +15,7 @@ Após o deploy do commit `4b6a044`, a raiz pública foi conferida com cache-bust
 ## Correção da entrada
 
 Após a correção, a raiz do aplicativo foi reaberta na prévia local em 28/08/2026. Depois do carregamento, a primeira tela exibida foi `Entrar no ambiente sincronizado`, com campos de e-mail e senha; a seleção de obras não aparece antes do login.
+
+## Correção publicada
+
+Após o deploy do commit `ea72fa0`, a raiz pública foi conferida com cache-busting. A primeira tela exibida após o carregamento é `Entrar no ambiente sincronizado`, com e-mail, senha, entrada, criação de conta e opção local. A seleção de obras não aparece antes do login.

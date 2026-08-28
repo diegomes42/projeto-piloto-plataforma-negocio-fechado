@@ -228,4 +228,4 @@
 - [x] Fazer o login sincronizado ser a primeira tela do aplicativo
 - [x] Levar o usuário autenticado para a seleção de obras após o login
 - [x] Manter o uso local como opção secundária, sem substituir a tela de login
-- [ ] Validar e publicar a correção da ordem de entrada
+- [x] Validar e publicar a correção da ordem de entrada
