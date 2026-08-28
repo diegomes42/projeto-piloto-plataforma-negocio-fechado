@@ -149,7 +149,7 @@
 - [x] Criar cadastro simples de colaboradores e alocação diária por frente
 - [x] Sinalizar colaboradores sem alocação no dia como ociosos a confirmar
 - [x] Criar cadastro de máquinas e lançamento diário de horímetro, frente e condição de uso
-- [ ] Validar registros, indicadores e persistência local dos novos controles
+- [x] Validar registros, indicadores e persistência local dos novos controles
 - [ ] Publicar a versão simplificada no GitHub Pages
 
 ## Subetapa móvel — aplicativo instalável
