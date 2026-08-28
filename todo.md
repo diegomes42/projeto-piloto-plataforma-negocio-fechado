@@ -164,7 +164,7 @@
 
 - [x] Atualizar a identidade exibida de Módulo Gestão para Módulo: Obras
 - [x] Restaurar e validar o acesso visível para instalar o aplicativo PWA
-- [ ] Validar e publicar a atualização de identidade e instalação
+- [x] Validar e publicar a atualização de identidade e instalação
 
 ## Subetapa móvel — aplicativo instalável
 
