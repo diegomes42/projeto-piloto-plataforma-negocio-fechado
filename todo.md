@@ -141,6 +141,17 @@
 - [x] Implementar galeria e classificação das evidências
 - [x] Planejar sincronização entre dispositivos para etapa futura
 
+## Reformulação para operação diária simples
+
+- [x] Reduzir a navegação ao núcleo útil de campo e gestão prática
+- [x] Reorganizar a Visão geral para mostrar decisões e registros do dia
+- [ ] Criar recebimento de materiais com item, medida, quantidade, trecho e comprovante opcional
+- [ ] Criar cadastro simples de colaboradores e alocação diária por frente
+- [ ] Sinalizar colaboradores sem alocação no dia como ociosos a confirmar
+- [ ] Criar cadastro de máquinas e lançamento diário de horímetro, frente e condição de uso
+- [ ] Validar registros, indicadores e persistência local dos novos controles
+- [ ] Publicar a versão simplificada no GitHub Pages
+
 ## Subetapa móvel — aplicativo instalável
 
 - [x] Adicionar manifesto, ícone, service worker e convite de instalação quando suportado
