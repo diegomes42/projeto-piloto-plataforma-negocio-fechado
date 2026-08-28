@@ -164,7 +164,7 @@ export default defineConfig({
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
   publicDir: path.resolve(import.meta.dirname, "client", "public"),
-  base: process.env.GITHUB_ACTIONS ? "/projeto-piloto-plataforma-negocio-fechado/" : "/",
+  base: process.env.VITE_BASE_PATH ?? (process.env.GITHUB_ACTIONS ? "/projeto-piloto-plataforma-negocio-fechado/" : "/"),
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,

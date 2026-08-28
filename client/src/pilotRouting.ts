@@ -4,9 +4,12 @@ export function readPilotPath() {
   const hashPath = window.location.hash.replace(/^#/, "");
   if (hashPath) return hashPath;
   const pathname = window.location.pathname.replace(/\/$/, "");
-  const base = "/projeto-piloto-plataforma-negocio-fechado";
-  if (pathname === base || pathname === "") return "/";
-  if (pathname.startsWith(`${base}/`)) return pathname.slice(base.length) || "/";
+  const configuredBase = import.meta.env.BASE_URL.replace(/\/$/, "");
+  const bases = [configuredBase, "/projeto-piloto-plataforma-negocio-fechado", "/obras"].filter(Boolean);
+  for (const base of bases) {
+    if (pathname === base || pathname === "") return "/";
+    if (pathname.startsWith(`${base}/`)) return pathname.slice(base.length) || "/";
+  }
   return pathname || "/";
 }
 export function usePilotLocation() {

@@ -183,8 +183,8 @@
 
 ## Migração de URL com marca
 
-- [ ] Confirmar a alternativa gratuita de URL com melhor aderência à marca
-- [ ] Criar a organização gratuita plataforma-negocio-fechado no GitHub
+- [x] Confirmar a alternativa gratuita de URL com melhor aderência à marca
+- [x] Criar a organização gratuita plataforma-negocio-fechado no GitHub
 - [ ] Publicar uma cópia oficial do Módulo: Obras no repositório obras da organização
 - [ ] Preparar a configuração técnica e a preservação de links para a nova URL
 - [ ] Validar e publicar o Módulo: Obras no novo endereço

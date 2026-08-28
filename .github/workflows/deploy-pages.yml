@@ -1,4 +1,4 @@
-name: Deploy Projeto Piloto
+name: Deploy Módulo: Obras
 
 on:
   push:
@@ -30,6 +30,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
       - name: Build static site
+        env:
+          VITE_BASE_PATH: /obras/
         run: pnpm exec vite build
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
