@@ -181,6 +181,33 @@
 - [x] Avaliar e recomendar alternativas para uma URL pública mais profissional
 - [x] Validar e publicar o controle de custos de materiais
 
+## Migração de URL com marca
+
+- [ ] Confirmar a alternativa gratuita de URL com melhor aderência à marca
+- [ ] Criar a organização gratuita plataforma-negocio-fechado no GitHub
+- [ ] Publicar uma cópia oficial do Módulo: Obras no repositório obras da organização
+- [ ] Preparar a configuração técnica e a preservação de links para a nova URL
+- [ ] Validar e publicar o Módulo: Obras no novo endereço
+
+## Sincronização entre dispositivos
+
+- [x] Avaliar alternativas simples, seguras e econômicas para sincronizar registros entre celular e computador
+- [x] Apresentar a proposta de sincronização antes de alterar a persistência local
+- [x] Preservar os registros e backups locais na migração para a sincronização aprovada
+- [ ] Validar sincronização de diário, materiais, equipe, máquinas, frentes e ações
+
+## Sincronização individual aprovada
+
+- [x] Preparar login individual e indicador de estado de sincronização
+- [x] Configurar base gerenciada, acesso individual e regras de proteção dos dados
+- [ ] Migrar a cópia inicial do navegador para a nuvem sem apagar os dados locais
+- [ ] Publicar e validar o uso da mesma conta em celular e computador
+
+## Avaliação de arquitetura de sincronização
+
+- [x] Comparar PocketBase e base gerenciada para o acesso individual entre celular e computador
+- [x] Definir a alternativa de hospedagem, backup e segurança antes de implementar a sincronização
+
 ## Subetapa móvel — aplicativo instalável
 
 - [x] Adicionar manifesto, ícone, service worker e convite de instalação quando suportado

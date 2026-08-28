@@ -1,5 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { appendMissingByLabel, applyProduction, sameLabel } from "@/localRules";
+import { getCurrentUser, readRemoteSnapshot, writeRemoteSnapshot } from "@/syncService";
+import { supabase } from "@/supabaseClient";
 
 export type LocalPriority = "Crítica" | "Alta" | "Média" | "Baixa";
 export type LocalEventStatus = "Aberto" | "Em tratamento" | "Resolvido";
@@ -331,9 +333,59 @@ function load(): LocalProject {
 
 export function useLocalProject() {
   const [project, setProject] = useState<LocalProject>(load);
+  const [syncStatus, setSyncStatus] = useState<"local" | "syncing" | "synced" | "offline">("local");
+  const syncUserId = useRef<string | null>(null);
+  const hydrated = useRef(false);
+  const syncing = useRef(false);
+  const projectRef = useRef(project);
+  projectRef.current = project;
 
   useEffect(() => {
     localStorage.setItem(KEY, JSON.stringify(project));
+  }, [project]);
+
+  const syncNow = useCallback(async () => {
+    try {
+      const user = await getCurrentUser();
+      hydrated.current = true;
+      if (!user) {
+        syncUserId.current = null;
+        setSyncStatus("local");
+        return;
+      }
+      syncUserId.current = user.id;
+      setSyncStatus("syncing");
+      const remote = await readRemoteSnapshot(user.id);
+      if (remote) setProject(normalizeProject(remote.project));
+      else await writeRemoteSnapshot(user.id, projectRef.current);
+      setSyncStatus("synced");
+    } catch {
+      hydrated.current = true;
+      setSyncStatus("offline");
+    }
+  }, []);
+
+  useEffect(() => {
+    void syncNow();
+    const refresh = () => { void syncNow(); };
+    const { data } = supabase.auth.onAuthStateChange(refresh);
+    window.addEventListener("focus", refresh);
+    window.addEventListener("online", refresh);
+    return () => {
+      data.subscription.unsubscribe();
+      window.removeEventListener("focus", refresh);
+      window.removeEventListener("online", refresh);
+    };
+  }, [syncNow]);
+
+  useEffect(() => {
+    if (!hydrated.current || !syncUserId.current || syncing.current) return;
+    syncing.current = true;
+    setSyncStatus("syncing");
+    void writeRemoteSnapshot(syncUserId.current, project)
+      .then(() => setSyncStatus("synced"))
+      .catch(() => setSyncStatus("offline"))
+      .finally(() => { syncing.current = false; });
   }, [project]);
 
   const update = useCallback((fn: (current: LocalProject) => LocalProject) => {
@@ -426,5 +478,5 @@ export function useLocalProject() {
     };
   }), [update]);
 
-  return { project, updateProject, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget, addMaterialReceipt, addTeamMember, upsertTeamAssignment, addMachine, upsertMachineLog };
+  return { project, syncStatus, syncNow, updateProject, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget, addMaterialReceipt, addTeamMember, upsertTeamAssignment, addMachine, upsertMachineLog };
 }
