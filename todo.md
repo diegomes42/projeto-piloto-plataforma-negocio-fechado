@@ -150,7 +150,7 @@
 - [x] Sinalizar colaboradores sem alocação no dia como ociosos a confirmar
 - [x] Criar cadastro de máquinas e lançamento diário de horímetro, frente e condição de uso
 - [x] Validar registros, indicadores e persistência local dos novos controles
-- [ ] Publicar a versão simplificada no GitHub Pages
+- [x] Publicar a versão simplificada no GitHub Pages
 
 ## Subetapa móvel — aplicativo instalável
 
