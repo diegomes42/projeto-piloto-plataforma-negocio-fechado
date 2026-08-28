@@ -7,7 +7,7 @@ import { Bell, Building2, ClipboardCheck, Download, LayoutDashboard, PackageChec
 import { useState } from "react";
 
 const menuItems = [
-  { icon: LayoutDashboard, label: "Hoje", path: "/" },
+  { icon: LayoutDashboard, label: "Hoje", path: "/hoje" },
   { icon: ClipboardCheck, label: "Diário do dia", path: "/diario" },
   { icon: PackageCheck, label: "Materiais", path: "/materiais" },
   { icon: Users, label: "Equipe", path: "/equipe" },

@@ -200,7 +200,7 @@
 
 - [x] Preparar login individual e indicador de estado de sincronização
 - [x] Configurar base gerenciada, acesso individual e regras de proteção dos dados
-- [ ] Migrar a cópia inicial do navegador para a nuvem sem apagar os dados locais
+- [x] Migrar a cópia inicial do navegador para a nuvem sem apagar os dados locais
 - [ ] Publicar e validar o uso da mesma conta em celular e computador
 
 ## Avaliação de arquitetura de sincronização
@@ -212,3 +212,13 @@
 
 - [x] Adicionar manifesto, ícone, service worker e convite de instalação quando suportado
 - [x] Validar e publicar o aplicativo instalável antes de implementar captura por câmera
+
+## Fluxo inicial do aplicativo
+
+- [x] Criar tela de carregamento inicial com a identidade Plataforma Negócio Fechado
+- [x] Atualizar o ícone principal e o ícone PWA para a letra O de Obras
+- [x] Criar tela de login para entrada no ambiente sincronizado
+- [x] Criar tela de seleção de obras com o Jardim Planalto e estado vazio para futuras obras
+- [x] Abrir a obra selecionada sem quebrar as rotas e a sincronização atuais
+- [x] Validar o fluxo completo em desktop e mobile
+- [ ] Publicar a nova entrada do aplicativo no GitHub Pages
