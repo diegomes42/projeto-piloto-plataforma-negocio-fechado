@@ -166,6 +166,13 @@
 - [x] Restaurar e validar o acesso visível para instalar o aplicativo PWA
 - [x] Validar e publicar a atualização de identidade e instalação
 
+## Sistema, módulo e custos de materiais
+
+- [x] Registrar a identidade: Plataforma Negócio Fechado como sistema e Módulo: Obras como módulo atual
+- [x] Atualizar a interface e os metadados com a hierarquia correta
+- [ ] Estudar e apresentar uma proposta enxuta para registrar custos e histórico de preços de materiais
+- [ ] Validar e publicar a atualização de identidade do sistema e módulo
+
 ## Subetapa móvel — aplicativo instalável
 
 - [x] Adicionar manifesto, ícone, service worker e convite de instalação quando suportado
