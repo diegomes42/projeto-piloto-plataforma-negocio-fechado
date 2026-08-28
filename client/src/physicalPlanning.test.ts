@@ -13,6 +13,8 @@ const project: LocalProject = {
   materialReceipts: [],
   teamMembers: [],
   teamAssignments: [],
+  machines: [],
+  machineLogs: [],
   diaries: [{ id: "diary-1", date: "2026-08-25T12:00:00.000Z", frontId: "drn-01", service: "Drenagem", summary: "Produção", occurrence: "", weather: "Seco", workforce: 4, hours: 8, production: 15 }],
 };
 

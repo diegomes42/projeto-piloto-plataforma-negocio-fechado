@@ -13,6 +13,8 @@ const project: LocalProject = {
   materialReceipts: [],
   teamMembers: [],
   teamAssignments: [],
+  machines: [],
+  machineLogs: [],
   diaries: [
     {
       id: "diary-1",

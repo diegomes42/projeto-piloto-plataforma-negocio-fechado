@@ -96,6 +96,28 @@ export type LocalTeamAssignment = {
   note: string;
 };
 
+export type LocalMachine = {
+  id: string;
+  name: string;
+  type: string;
+  identifier: string;
+  active: boolean;
+};
+
+export type LocalMachineCondition = "Trabalhando" | "Parado" | "Manutenção" | "Disponível";
+
+export type LocalMachineLog = {
+  id: string;
+  date: string;
+  machineId: string;
+  frontId?: string;
+  operator: string;
+  condition: LocalMachineCondition;
+  hourmeterStart?: number;
+  hourmeterEnd?: number;
+  note: string;
+};
+
 export type LocalProject = {
   name: string;
   location: string;
@@ -109,6 +131,8 @@ export type LocalProject = {
   materialReceipts: LocalMaterialReceipt[];
   teamMembers: LocalTeamMember[];
   teamAssignments: LocalTeamAssignment[];
+  machines: LocalMachine[];
+  machineLogs: LocalMachineLog[];
 };
 
 const seed: LocalProject = {
@@ -243,6 +267,8 @@ const seed: LocalProject = {
   materialReceipts: [],
   teamMembers: [],
   teamAssignments: [],
+  machines: [],
+  machineLogs: [],
 };
 
 export const LOCAL_STORAGE_KEY = "obra-piloto-local-v1";
@@ -272,6 +298,8 @@ function normalizeProject(raw: Partial<LocalProject>): LocalProject {
     materialReceipts: raw.materialReceipts ?? [],
     teamMembers: raw.teamMembers ?? [],
     teamAssignments: raw.teamAssignments ?? [],
+    machines: raw.machines ?? [],
+    machineLogs: raw.machineLogs ?? [],
   };
 }
 
@@ -378,5 +406,20 @@ export function useLocalProject() {
     };
   }), [update]);
 
-  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget, addMaterialReceipt, addTeamMember, upsertTeamAssignment };
+  const addMachine = useCallback((machine: Omit<LocalMachine, "id">) => update((current) => ({
+    ...current,
+    machines: [...current.machines, { ...machine, id: makeId("machine") }],
+  })), [update]);
+
+  const upsertMachineLog = useCallback((log: Omit<LocalMachineLog, "id">) => update((current) => {
+    const existing = current.machineLogs.find((item) => item.machineId === log.machineId && item.date === log.date);
+    return {
+      ...current,
+      machineLogs: existing
+        ? current.machineLogs.map((item) => (item.id === existing.id ? { ...item, ...log } : item))
+        : [{ ...log, id: makeId("machine-log") }, ...current.machineLogs],
+    };
+  }), [update]);
+
+  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget, addMaterialReceipt, addTeamMember, upsertTeamAssignment, addMachine, upsertMachineLog };
 }

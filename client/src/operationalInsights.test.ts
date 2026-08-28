@@ -17,6 +17,8 @@ const baseProject: LocalProject = {
   materialReceipts: [],
   teamMembers: [],
   teamAssignments: [],
+  machines: [],
+  machineLogs: [],
   diaries: [],
 };
 

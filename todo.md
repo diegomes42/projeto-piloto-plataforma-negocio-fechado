@@ -148,7 +148,7 @@
 - [x] Criar recebimento de materiais com item, medida, quantidade, trecho e comprovante opcional
 - [x] Criar cadastro simples de colaboradores e alocação diária por frente
 - [x] Sinalizar colaboradores sem alocação no dia como ociosos a confirmar
-- [ ] Criar cadastro de máquinas e lançamento diário de horímetro, frente e condição de uso
+- [x] Criar cadastro de máquinas e lançamento diário de horímetro, frente e condição de uso
 - [ ] Validar registros, indicadores e persistência local dos novos controles
 - [ ] Publicar a versão simplificada no GitHub Pages
 

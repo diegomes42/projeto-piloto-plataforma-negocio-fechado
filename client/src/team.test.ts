@@ -9,6 +9,8 @@ const project: LocalProject = {
     { id: "worker-2", name: "Bruno", role: "Ajudante", company: "Remígio", active: true },
   ],
   teamAssignments: [{ id: "assignment-1", date: "2026-08-28", memberId: "worker-1", frontId: "drn-01", status: "Alocado", note: "Drenagem" }],
+  machines: [],
+  machineLogs: [],
 };
 
 describe("alocação diária da equipe", () => {
