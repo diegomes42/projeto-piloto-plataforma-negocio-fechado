@@ -221,4 +221,4 @@
 - [x] Criar tela de seleção de obras com o Jardim Planalto e estado vazio para futuras obras
 - [x] Abrir a obra selecionada sem quebrar as rotas e a sincronização atuais
 - [x] Validar o fluxo completo em desktop e mobile
-- [ ] Publicar a nova entrada do aplicativo no GitHub Pages
+- [x] Publicar a nova entrada do aplicativo no GitHub Pages

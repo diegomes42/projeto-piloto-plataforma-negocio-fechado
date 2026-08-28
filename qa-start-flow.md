@@ -7,3 +7,7 @@ A rota de seleção de obras apresenta o Jardim Planalto com localização Remí
 A transição foi testada na prévia local: o comando `Continuar somente neste dispositivo` levou à tela `Suas obras`, que exibiu Jardim Planalto, Remígio/PB, Em execução, o botão `Abrir obra` e o cartão de futura adição de obras.
 
 A ação `Abrir obra` foi testada na prévia e levou corretamente à rota `#/hoje`, com o painel operacional, menu principal, localização Remígio/PB e acesso a Instalar app preservados.
+
+## Validação pública
+
+Após o deploy do commit `4b6a044`, a raiz pública foi conferida com cache-busting. O título exibiu `Plataforma Negócio Fechado · Módulo: Obras`; a tela mostrou o ícone `O`, a entrada `Entrar no ambiente sincronizado`, campos de e-mail e senha e a opção `Continuar somente neste dispositivo`.
