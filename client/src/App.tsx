@@ -14,11 +14,12 @@ import EvidenceGalleryPage from "@/pages/EvidenceGalleryPage";
 import MaterialsPage from "@/pages/MaterialsPage";
 import TeamPage from "@/pages/TeamPage";
 import MachinesPage from "@/pages/MachinesPage";
+import PreferencesPage from "@/pages/PreferencesPage";
 import { usePilotLocation } from "@/pilotRouting";
 
 function AppRouter() {
   const [path] = usePilotLocation();
-  const content = path === "/" ? <Home /> : path === "/diario" ? <OperationalPage mode="diario" /> : path === "/frentes" ? <OperationalPage mode="frentes" /> : path === "/eventos" ? <OperationalPage mode="eventos" /> : path === "/timeline" ? <OperationalPage mode="timeline" /> : path === "/cadastro" ? <SetupPage /> : path === "/dados" ? <BackupPage /> : path === "/relatorio" ? <WeeklyReportPage /> : path === "/planejamento" ? <PhysicalPlanningPage /> : path === "/evidencias" ? <EvidenceGalleryPage /> : path === "/materiais" ? <MaterialsPage /> : path === "/equipe" ? <TeamPage /> : path === "/maquinas" ? <MachinesPage /> : <NotFound />;
+  const content = path === "/" ? <Home /> : path === "/diario" ? <OperationalPage mode="diario" /> : path === "/frentes" ? <OperationalPage mode="frentes" /> : path === "/eventos" ? <OperationalPage mode="eventos" /> : path === "/timeline" ? <OperationalPage mode="timeline" /> : path === "/cadastro" ? <SetupPage /> : path === "/dados" ? <BackupPage /> : path === "/relatorio" ? <WeeklyReportPage /> : path === "/planejamento" ? <PhysicalPlanningPage /> : path === "/evidencias" ? <EvidenceGalleryPage /> : path === "/materiais" ? <MaterialsPage /> : path === "/equipe" ? <TeamPage /> : path === "/maquinas" ? <MachinesPage /> : path === "/preferencias" ? <PreferencesPage /> : <NotFound />;
   return <DashboardLayout>{content}</DashboardLayout>;
 }
 

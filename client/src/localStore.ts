@@ -137,7 +137,7 @@ export type LocalProject = {
 
 const seed: LocalProject = {
   name: "Jardim Planalto",
-  location: "São Paulo",
+  location: "Remígio/PB",
   status: "Em execução",
   description: "Loteamento em 2 etapas · cerca de 500 lotes",
   fronts: [
@@ -284,9 +284,11 @@ function mergeSeedActions(rawActions: LocalAction[] | undefined) {
 }
 
 function normalizeProject(raw: Partial<LocalProject>): LocalProject {
+  const isLegacyJardimPlanalto = raw.name === "Jardim Planalto" && raw.location === "São Paulo";
   return {
     ...seed,
     ...raw,
+    location: isLegacyJardimPlanalto ? seed.location : raw.location ?? seed.location,
     fronts: (raw.fronts ?? seed.fronts).map((front) => ({
       ...front,
       services: Array.isArray(front.services) && front.services.length > 0 ? front.services : seed.fronts.find((item) => item.id === front.id)?.services ?? [],
@@ -336,6 +338,8 @@ export function useLocalProject() {
   const update = useCallback((fn: (current: LocalProject) => LocalProject) => {
     setProject((current) => fn(current));
   }, []);
+
+  const updateProject = useCallback((changes: Pick<LocalProject, "name" | "location" | "status" | "description">) => update((current) => ({ ...current, ...changes })), [update]);
 
   const addDiary = useCallback(
     (entry: Omit<LocalDiary, "id">) =>
@@ -421,5 +425,5 @@ export function useLocalProject() {
     };
   }), [update]);
 
-  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget, addMaterialReceipt, addTeamMember, upsertTeamAssignment, addMachine, upsertMachineLog };
+  return { project, updateProject, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget, addMaterialReceipt, addTeamMember, upsertTeamAssignment, addMachine, upsertMachineLog };
 }

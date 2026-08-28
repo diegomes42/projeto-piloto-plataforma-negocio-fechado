@@ -152,6 +152,14 @@
 - [x] Validar registros, indicadores e persistência local dos novos controles
 - [x] Publicar a versão simplificada no GitHub Pages
 
+## Identidade e dados da obra
+
+- [x] Atualizar o nome exibido para Módulo Gestão: Plataforma Negócio Fechado
+- [x] Corrigir e tornar editáveis os dados básicos da obra, incluindo localização
+- [x] Apresentar para aprovação o escopo enxuto da área de Preferências
+- [x] Implementar a área de Preferências somente após aprovação
+- [ ] Validar e publicar a atualização de identidade e dados
+
 ## Subetapa móvel — aplicativo instalável
 
 - [x] Adicionar manifesto, ícone, service worker e convite de instalação quando suportado

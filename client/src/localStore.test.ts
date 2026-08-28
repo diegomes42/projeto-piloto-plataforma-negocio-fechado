@@ -55,4 +55,10 @@ describe("backup local do piloto", () => {
     expect(() => parseLocalBackup("não é json")).toThrow();
     expect(() => parseLocalBackup(JSON.stringify([]))).toThrow("Backup incompleto");
   });
+
+  it("corrige a localização legada do Jardim Planalto para Remígio/PB", () => {
+    const restored = parseLocalBackup(serializeLocalProject(project));
+
+    expect(restored.location).toBe("Remígio/PB");
+  });
 });
