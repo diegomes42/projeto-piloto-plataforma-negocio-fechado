@@ -11,3 +11,7 @@ A ação `Abrir obra` foi testada na prévia e levou corretamente à rota `#/hoj
 ## Validação pública
 
 Após o deploy do commit `4b6a044`, a raiz pública foi conferida com cache-busting. O título exibiu `Plataforma Negócio Fechado · Módulo: Obras`; a tela mostrou o ícone `O`, a entrada `Entrar no ambiente sincronizado`, campos de e-mail e senha e a opção `Continuar somente neste dispositivo`.
+
+## Correção da entrada
+
+Após a correção, a raiz do aplicativo foi reaberta na prévia local em 28/08/2026. Depois do carregamento, a primeira tela exibida foi `Entrar no ambiente sincronizado`, com campos de e-mail e senha; a seleção de obras não aparece antes do login.

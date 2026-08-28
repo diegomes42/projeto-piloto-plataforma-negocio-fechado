@@ -52,8 +52,8 @@ export default function StartPage() {
   const [phase, setPhase] = useState<"loading" | "login" | "works">("loading");
   useEffect(() => {
     let active = true;
-    const timer = setTimeout(() => { void getCurrentUser().then((user) => { if (active) setPhase(user ? "works" : "login"); }).catch(() => { if (active) setPhase("login"); }); }, 800);
-    const { data } = supabase.auth.onAuthStateChange((_event, session) => { if (active && session) setPhase("works"); });
+    const timer = setTimeout(() => { void getCurrentUser().then(() => { if (active) setPhase("login"); }).catch(() => { if (active) setPhase("login"); }); }, 800);
+    const { data } = supabase.auth.onAuthStateChange(() => { /* A entrada continua no login; a seleção só abre após confirmação do usuário. */ });
     return () => { active = false; clearTimeout(timer); data.subscription.unsubscribe(); };
   }, []);
   const mode = resolveStartMode(phase === "loading", phase === "works");

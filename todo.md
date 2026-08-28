@@ -222,3 +222,10 @@
 - [x] Abrir a obra selecionada sem quebrar as rotas e a sincronização atuais
 - [x] Validar o fluxo completo em desktop e mobile
 - [x] Publicar a nova entrada do aplicativo no GitHub Pages
+
+## Correção da entrada
+
+- [x] Fazer o login sincronizado ser a primeira tela do aplicativo
+- [x] Levar o usuário autenticado para a seleção de obras após o login
+- [x] Manter o uso local como opção secundária, sem substituir a tela de login
+- [ ] Validar e publicar a correção da ordem de entrada
