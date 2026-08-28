@@ -160,6 +160,12 @@
 - [x] Implementar a área de Preferências somente após aprovação
 - [x] Validar e publicar a atualização de identidade e dados
 
+## Ajuste de identidade e instalação
+
+- [x] Atualizar a identidade exibida de Módulo Gestão para Módulo: Obras
+- [x] Restaurar e validar o acesso visível para instalar o aplicativo PWA
+- [ ] Validar e publicar a atualização de identidade e instalação
+
 ## Subetapa móvel — aplicativo instalável
 
 - [x] Adicionar manifesto, ícone, service worker e convite de instalação quando suportado

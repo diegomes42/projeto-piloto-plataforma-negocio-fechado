@@ -1,6 +1,6 @@
 {
-  "name": "Módulo Gestão: Plataforma Negócio Fechado",
-  "short_name": "Módulo Gestão",
+  "name": "Módulo: Obras",
+  "short_name": "Módulo: Obras",
   "description": "Controle operacional local da obra Jardim Planalto.",
   "start_url": "./#/",
   "scope": "./",
