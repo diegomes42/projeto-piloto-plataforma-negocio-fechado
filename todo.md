@@ -179,7 +179,7 @@
 - [x] Exibir consolidado de custo médio e histórico de preço por material
 - [x] Preservar compatibilidade de backups locais sem custo informado
 - [x] Avaliar e recomendar alternativas para uma URL pública mais profissional
-- [ ] Validar e publicar o controle de custos de materiais
+- [x] Validar e publicar o controle de custos de materiais
 
 ## Subetapa móvel — aplicativo instalável
 
