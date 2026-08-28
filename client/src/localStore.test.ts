@@ -11,6 +11,8 @@ const project: LocalProject = {
   events: [],
   weeklyTargets: [],
   materialReceipts: [],
+  teamMembers: [],
+  teamAssignments: [],
   diaries: [
     {
       id: "diary-1",

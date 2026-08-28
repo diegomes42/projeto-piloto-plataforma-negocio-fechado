@@ -3,7 +3,7 @@ import { collectEvidence, filterEvidence } from "./evidenceGallery";
 import type { LocalProject } from "./localStore";
 
 const project: LocalProject = {
-  name: "Jardim Planalto", location: "São Paulo", status: "Em execução", description: "Teste", fronts: [], actions: [], events: [], weeklyTargets: [], materialReceipts: [],
+  name: "Jardim Planalto", location: "São Paulo", status: "Em execução", description: "Teste", fronts: [], actions: [], events: [], weeklyTargets: [], materialReceipts: [], teamMembers: [], teamAssignments: [],
   diaries: [
     { id: "diary-photo", date: "2026-08-27T12:00:00.000Z", frontId: "drn-01", service: "Drenagem", summary: "Com foto", occurrence: "", weather: "Seco", workforce: 3, hours: 8, production: 5, evidenceName: "dreno.jpg", evidenceDataUrl: "data:image/jpeg;base64,abc", evidenceType: "image/jpeg" },
     { id: "diary-file", date: "2026-08-26T12:00:00.000Z", frontId: "via-01", service: "Limpeza", summary: "Com evidência", occurrence: "", weather: "Seco", workforce: 2, hours: 8, production: 2, evidenceName: "via.jpg" },

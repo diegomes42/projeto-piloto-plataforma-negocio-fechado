@@ -77,6 +77,25 @@ export type LocalMaterialReceipt = {
   reference: string;
 };
 
+export type LocalTeamMember = {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  active: boolean;
+};
+
+export type LocalTeamAssignmentStatus = "Alocado" | "Ocioso" | "Folga" | "Outro";
+
+export type LocalTeamAssignment = {
+  id: string;
+  date: string;
+  memberId: string;
+  frontId?: string;
+  status: LocalTeamAssignmentStatus;
+  note: string;
+};
+
 export type LocalProject = {
   name: string;
   location: string;
@@ -88,6 +107,8 @@ export type LocalProject = {
   diaries: LocalDiary[];
   weeklyTargets: LocalWeeklyTarget[];
   materialReceipts: LocalMaterialReceipt[];
+  teamMembers: LocalTeamMember[];
+  teamAssignments: LocalTeamAssignment[];
 };
 
 const seed: LocalProject = {
@@ -220,6 +241,8 @@ const seed: LocalProject = {
   diaries: [],
   weeklyTargets: [],
   materialReceipts: [],
+  teamMembers: [],
+  teamAssignments: [],
 };
 
 export const LOCAL_STORAGE_KEY = "obra-piloto-local-v1";
@@ -247,6 +270,8 @@ function normalizeProject(raw: Partial<LocalProject>): LocalProject {
     diaries: raw.diaries ?? [],
     weeklyTargets: raw.weeklyTargets ?? [],
     materialReceipts: raw.materialReceipts ?? [],
+    teamMembers: raw.teamMembers ?? [],
+    teamAssignments: raw.teamAssignments ?? [],
   };
 }
 
@@ -338,5 +363,20 @@ export function useLocalProject() {
     materialReceipts: [{ ...receipt, id: makeId("material") }, ...current.materialReceipts],
   })), [update]);
 
-  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget, addMaterialReceipt };
+  const addTeamMember = useCallback((member: Omit<LocalTeamMember, "id">) => update((current) => ({
+    ...current,
+    teamMembers: [...current.teamMembers, { ...member, id: makeId("team-member") }],
+  })), [update]);
+
+  const upsertTeamAssignment = useCallback((assignment: Omit<LocalTeamAssignment, "id">) => update((current) => {
+    const existing = current.teamAssignments.find((item) => item.memberId === assignment.memberId && item.date === assignment.date);
+    return {
+      ...current,
+      teamAssignments: existing
+        ? current.teamAssignments.map((item) => (item.id === existing.id ? { ...item, ...assignment } : item))
+        : [{ ...assignment, id: makeId("team-assignment") }, ...current.teamAssignments],
+    };
+  }), [update]);
+
+  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget, addMaterialReceipt, addTeamMember, upsertTeamAssignment };
 }

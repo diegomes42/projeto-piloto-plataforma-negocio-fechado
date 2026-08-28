@@ -15,6 +15,8 @@ const baseProject: LocalProject = {
   events: [{ id: "event-1", title: "Evento crítico", description: "Teste", date: "2026-08-20T12:00:00.000Z", impact: "Impacto", decision: "Decisão", priority: "Crítica", status: "Aberto" }],
   weeklyTargets: [],
   materialReceipts: [],
+  teamMembers: [],
+  teamAssignments: [],
   diaries: [],
 };
 

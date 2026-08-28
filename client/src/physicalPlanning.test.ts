@@ -11,6 +11,8 @@ const project: LocalProject = {
   actions: [], events: [],
   weeklyTargets: [{ id: "target-1", frontId: "drn-01", weekEnd: "2026-08-27", planned: 20, note: "Meta de drenagem" }],
   materialReceipts: [],
+  teamMembers: [],
+  teamAssignments: [],
   diaries: [{ id: "diary-1", date: "2026-08-25T12:00:00.000Z", frontId: "drn-01", service: "Drenagem", summary: "Produção", occurrence: "", weather: "Seco", workforce: 4, hours: 8, production: 15 }],
 };
 
