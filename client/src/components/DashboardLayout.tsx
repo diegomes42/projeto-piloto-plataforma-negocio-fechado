@@ -2,11 +2,11 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { useIsMobile } from "@/hooks/useMobile";
 import { usePilotLocation } from "@/pilotRouting";
-import { Bell, Building2, ClipboardCheck, Download, LayoutDashboard, PanelLeft, Settings2, X } from "lucide-react";
+import { Bell, Building2, ClipboardCheck, Download, LayoutDashboard, PackageCheck, PanelLeft, Settings2, X } from "lucide-react";
 import { useState } from "react";
 
 const menuItems = [
-  { icon: LayoutDashboard, label: "Hoje", path: "/" }, { icon: ClipboardCheck, label: "Diário do dia", path: "/diario" }, { icon: Building2, label: "Frentes", path: "/frentes" }, { icon: Bell, label: "Ações", path: "/eventos" }, { icon: Download, label: "Backup", path: "/dados" },
+  { icon: LayoutDashboard, label: "Hoje", path: "/" }, { icon: ClipboardCheck, label: "Diário do dia", path: "/diario" }, { icon: PackageCheck, label: "Materiais", path: "/materiais" }, { icon: Building2, label: "Frentes", path: "/frentes" }, { icon: Bell, label: "Ações", path: "/eventos" }, { icon: Download, label: "Backup", path: "/dados" },
 ];
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {

@@ -10,6 +10,7 @@ const project: LocalProject = {
   fronts: [{ id: "drn-01", name: "Drenagem", code: "DRN-01", progress: 20, status: "Atenção", detail: "Teste", executed: 20, planned: 100, unit: "m", services: [] }],
   actions: [], events: [],
   weeklyTargets: [{ id: "target-1", frontId: "drn-01", weekEnd: "2026-08-27", planned: 20, note: "Meta de drenagem" }],
+  materialReceipts: [],
   diaries: [{ id: "diary-1", date: "2026-08-25T12:00:00.000Z", frontId: "drn-01", service: "Drenagem", summary: "Produção", occurrence: "", weather: "Seco", workforce: 4, hours: 8, production: 15 }],
 };
 

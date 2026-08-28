@@ -10,6 +10,7 @@ const project: LocalProject = {
   actions: [],
   events: [],
   weeklyTargets: [],
+  materialReceipts: [],
   diaries: [
     {
       id: "diary-1",

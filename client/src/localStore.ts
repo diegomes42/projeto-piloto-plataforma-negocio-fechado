@@ -64,6 +64,19 @@ export type LocalWeeklyTarget = {
   note: string;
 };
 
+export type LocalMaterialReceipt = {
+  id: string;
+  date: string;
+  item: string;
+  specification: string;
+  quantity: number;
+  unit: string;
+  supplier: string;
+  frontId?: string;
+  location: string;
+  reference: string;
+};
+
 export type LocalProject = {
   name: string;
   location: string;
@@ -74,6 +87,7 @@ export type LocalProject = {
   events: LocalEvent[];
   diaries: LocalDiary[];
   weeklyTargets: LocalWeeklyTarget[];
+  materialReceipts: LocalMaterialReceipt[];
 };
 
 const seed: LocalProject = {
@@ -205,6 +219,7 @@ const seed: LocalProject = {
   })),
   diaries: [],
   weeklyTargets: [],
+  materialReceipts: [],
 };
 
 export const LOCAL_STORAGE_KEY = "obra-piloto-local-v1";
@@ -231,6 +246,7 @@ function normalizeProject(raw: Partial<LocalProject>): LocalProject {
     events: raw.events ?? seed.events,
     diaries: raw.diaries ?? [],
     weeklyTargets: raw.weeklyTargets ?? [],
+    materialReceipts: raw.materialReceipts ?? [],
   };
 }
 
@@ -317,5 +333,10 @@ export function useLocalProject() {
     };
   }), [update]);
 
-  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget };
+  const addMaterialReceipt = useCallback((receipt: Omit<LocalMaterialReceipt, "id">) => update((current) => ({
+    ...current,
+    materialReceipts: [{ ...receipt, id: makeId("material") }, ...current.materialReceipts],
+  })), [update]);
+
+  return { project, addDiary, addEvent, setEventStatus, addAction, updateAction, replaceProject, toggleAction, addFront, addService, upsertWeeklyTarget, addMaterialReceipt };
 }
