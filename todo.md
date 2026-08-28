@@ -170,8 +170,16 @@
 
 - [x] Registrar a identidade: Plataforma Negócio Fechado como sistema e Módulo: Obras como módulo atual
 - [x] Atualizar a interface e os metadados com a hierarquia correta
-- [ ] Estudar e apresentar uma proposta enxuta para registrar custos e histórico de preços de materiais
+- [x] Estudar e apresentar uma proposta enxuta para registrar custos e histórico de preços de materiais
 - [x] Validar e publicar a atualização de identidade do sistema e módulo
+
+## Custos de materiais e URL pública
+
+- [x] Adicionar valor unitário opcional e valor total automático aos recebimentos de materiais
+- [x] Exibir consolidado de custo médio e histórico de preço por material
+- [x] Preservar compatibilidade de backups locais sem custo informado
+- [x] Avaliar e recomendar alternativas para uma URL pública mais profissional
+- [ ] Validar e publicar o controle de custos de materiais
 
 ## Subetapa móvel — aplicativo instalável
 

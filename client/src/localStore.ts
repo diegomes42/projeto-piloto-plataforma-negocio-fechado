@@ -75,6 +75,7 @@ export type LocalMaterialReceipt = {
   frontId?: string;
   location: string;
   reference: string;
+  unitCost?: number;
 };
 
 export type LocalTeamMember = {

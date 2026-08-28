@@ -61,4 +61,13 @@ describe("backup local do piloto", () => {
 
     expect(restored.location).toBe("Remígio/PB");
   });
+
+  it("restaura recebimentos antigos sem custo informado", () => {
+    const restored = parseLocalBackup(serializeLocalProject({
+      ...project,
+      materialReceipts: [{ id: "material-1", date: "2026-08-28", item: "Manilha", specification: "Ø 1000 mm", quantity: 18, unit: "un", supplier: "Fornecedor", location: "DRN-01", reference: "NF 1" }],
+    }));
+
+    expect(restored.materialReceipts[0].unitCost).toBeUndefined();
+  });
 });
