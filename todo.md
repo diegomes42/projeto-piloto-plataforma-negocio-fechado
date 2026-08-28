@@ -158,7 +158,7 @@
 - [x] Corrigir e tornar editáveis os dados básicos da obra, incluindo localização
 - [x] Apresentar para aprovação o escopo enxuto da área de Preferências
 - [x] Implementar a área de Preferências somente após aprovação
-- [ ] Validar e publicar a atualização de identidade e dados
+- [x] Validar e publicar a atualização de identidade e dados
 
 ## Subetapa móvel — aplicativo instalável
 
